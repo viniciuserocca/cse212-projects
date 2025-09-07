@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public static class Arrays
 {
     /// <summary>
@@ -13,7 +15,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Plan: 
+        // First, I will get the length entered by the user and then use it to create the array with the right size.
+        // Second, I will do a for each loop, using the length as a parameter to determine how many loops will occur.
+        // Third, I will use the index of the current execution of the loop to multiplicate the number passed by the user, for example, 
+        //if the lenth is 5, the first loop will have the index = 1, so I will get this value * the number, the second loop
+        //will have index = 2, then I will repeat the same logic over and over until all index are used and multiplied.
+
+        double[] multiplesArray = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            multiplesArray[i] = number * (i + 1);
+        }
+        return multiplesArray; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +44,16 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //Plan:
+        // I will use a C# function named Reverse, this function basically reverses the value within a list
+        // So I will have to call it 3 times, doing the following:
+        // 1 - Reverse the whole list
+        // 2 - Reverse only the amount passed in the function starting on index 0
+        // 3 - Reverse the rest of the list (ignoring the amount that was previously reversed), starting on the index of the amount
+
+        data.Reverse();
+        data.Reverse(0, amount);
+        data.Reverse(amount, data.Count - amount);
     }
 }
